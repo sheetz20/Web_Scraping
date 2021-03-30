@@ -24,8 +24,7 @@ for rating in soup.find_all('td',class_="ratingColumn imdbRating"):
     movieRating = rating.text.strip()
     ratingList.append(movieRating)
 
-for index, name in enumerate(movieList):
-    rating = ratingList[index]
+for name, rating in zip(movieList,ratingList):
     csv_writer.writerow([name,rating])
 
 csv_file.close()
